@@ -42,11 +42,50 @@ const theGame = {
   },
 
   handelCardClick(card) {
-    // if(this.gameOver || this.gamePause)
+    if (this.gameOver || this.gamePause || card.faceUp) return;
+
+    card.flipCard();
+    if (!this.openCard) {
+      this.openCard = card;
+      return;
+    }
+
+    if (isPair(card, this.openCard)) {
+      pairIsFound();
+    } else {
+      this.wrongGuess(card);
+    }
   },
 
   start() {
     this.generateCards();
+  },
+
+  pairIsFound() {
+    this.openCard = undefined;
+    this.numOfUnrevealedPairs--;
+    if (this.numOfUnrevealedPairs) {
+      this.winGame();
+    }
+  },
+
+  gameEnd() {
+    console.log('Game Over!!!!'); //TODO -----------------------------
+  },
+  wrongGuess(card) {
+    this.gamePause = true;
+    setTimeout((this.gamePause = false), 1000);
+    card.flipCard();
+    this.openCard.flipCard();
+    this.openCard = undefined;
+    this.numOfWrongGuesses--;
+    if (!this.numOfWrongGuesses) {
+      this.gameEnd();
+    }
+  },
+
+  winGame() {
+    console.log('win game!!!!'); //TODO -----------------------------
   },
 };
 
@@ -66,6 +105,10 @@ const insertInRandIndex = function (arr, length, insert) {
     randIndex %= length;
   }
   arr[randIndex] = insert;
+};
+
+const isPair = function (card1, card2) {
+  return card1.uniqueId[0] === card2.uniqueId[0];
 };
 
 theGame.start();
