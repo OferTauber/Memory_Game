@@ -11,10 +11,12 @@ Card.prototype.click = function () {
 
 Card.prototype.flipCardUp = function () {
   if (!this.faceUp) this.faceUp = true;
+
   this.cardElement.classList.remove('face-down');
 };
 
 Card.prototype.flipCardDown = function () {
   if (this.faceUp) this.faceUp = false;
+
   this.cardElement.classList.add('face-down');
 };
