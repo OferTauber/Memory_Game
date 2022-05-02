@@ -1,43 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/normalize.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <title>Memory Game</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./CSS/normalize.css" />
-  <link rel="stylesheet" href="./CSS/style.css" />
-  <title>Memory Game</title>
-</head>
+  <body>
+    <h1>Memory Game</h1>
+    <div class="flex">
+      <div class="game-board"></div>
+      <div class="control-panel">
+        <div class="wrong-guesses">
+          <p>Wrong guesses: <span class="wrong-count">0</span></p>
+        </div>
 
-<body>
-  <h1>Memory Game</h1>
-  <div class="flex">
-    <div class="game-board">
-      <div class="card card0a face-down"></div>
-      <div class="card card1a face-down"></div>
-      <div class="card card2a face-down"></div>
-      <div class="card card3a face-down"></div>
-      <div class="card card4a face-down"></div>
-      <div class="card card5a face-down"></div>
-      <div class="card card0b face-down"></div>
-      <div class="card card1b face-down"></div>
-      <div class="card card2b face-down"></div>
-      <div class="card card3b face-down"></div>
-      <div class="card card4b face-down"></div>
-      <div class="card card5b face-down"></div>
-    </div>
-    <div class="control-panel">
-      <div class="wrong-guesses">
-        <p>Wrong guesses: <span class="wrong-count">0</span></p>
+        <div class="timer"><p>00:00</p></div>
+        <div class="btn new-game">New Game</div>
       </div>
-      <div class="timer">
-        <p>00:00</p>
-      </div>
-      <div class="btn new-game">New Game</div>
     </div>
-  </div>
-  <script src="./scripts/app.js" defer type="module"></script>
-</body>
-
+    <script src="./scripts/app.js" defer type="module"></script>
+  </body>
 </html>

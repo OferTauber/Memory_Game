@@ -13,48 +13,80 @@ const theGame = {
   generateCards() {
     const tampleteArr = genetareRandArrOfPaers(12);
 
-    /* //!!!v----v---v----v----v!! */
-    let i = 1; //! remove!!
-    let a = true; //!remove!!
-    /* //!!!^-----^------^-----^----^!!!! */
+    createAndAppendAllCards(tampleteArr, this.boardElement);
 
     for (const id of tampleteArr) {
       this.cards.unshift(new Card(id, this));
-
-      /* //!!!v----v---v----v----v!! */
-      this.cards[0].element = document.querySelector(
-        `.card${i + ''}${a ? 'a' : 'b'}`
-      );
-
-      a = !a;
-      if (a) i++;
-      console.log(this.cards[0].element);
-      this.cards[0].element.addEventListener('click', (e) => {
-        console.dir(e);
-        this.handelCardClick(e.target);
+      console.log(this.cards[0]);
+      const closure = this.cards[0];
+      closure.cardElement.addEventListener('click', (e) => {
+        closure.click();
       });
-
-      /* //!!!^-----^------^-----^----^!!!! */
-      this.boardElement.appendChild(this.cards[0].element);
-
-      this.cards[0].element.classList.add('face-down');
     }
   },
 
-  handelCardClick(card) {
-    // if(this.gameOver || this.gamePause)
+  handleClick(card) {
+    if (this.gameOver || this.gamePause || card.faceUp) return;
+
+    card.flipCardUp();
+
+    if (!this.openCard) {
+      this.openCard = card;
+      return;
+    }
+
+    if (isPair(card, this.openCard)) {
+      this.pairIsFound();
+    } else {
+      this.wrongGuess(card);
+    }
   },
 
   start() {
     this.generateCards();
   },
+
+  pairIsFound() {
+    this.openCard = undefined;
+    this.numOfUnrevealedPairs--;
+    if (!this.numOfUnrevealedPairs) {
+      this.winGame();
+    }
+  },
+
+  gameEnd() {
+    console.log('Game Over!!!!'); //TODO -----------------------------
+  },
+  wrongGuess(card) {
+    this.gamePause = true;
+    setTimeout(() => {
+      this.handelWrongGuess(card);
+    }, 1000);
+  },
+
+  handelWrongGuess(card) {
+    this.gamePause = false;
+    card.flipCardDown();
+    this.openCard.flipCardDown();
+    this.openCard = undefined;
+    this.numOfWrongGuesses--;
+    console.log(this.numOfWrongGuesses);
+    if (!this.numOfWrongGuesses) {
+      this.gameEnd();
+    }
+  },
+
+  winGame() {
+    alert('win game!!!!'); //TODO -----------------------------
+  },
 };
 
 const genetareRandArrOfPaers = function (length) {
   const randArrOfPaers = [];
+
   for (let i = 0; i < length; i += 2) {
-    insertInRandIndex(randArrOfPaers, length, i / 2);
-    insertInRandIndex(randArrOfPaers, length, i / 2);
+    insertInRandIndex(randArrOfPaers, length, i / 2 + 'a');
+    insertInRandIndex(randArrOfPaers, length, i / 2 + 'b');
   }
   return randArrOfPaers;
 };
@@ -66,6 +98,26 @@ const insertInRandIndex = function (arr, length, insert) {
     randIndex %= length;
   }
   arr[randIndex] = insert;
+};
+
+const isPair = function (card1, card2) {
+  return card1.uniqueId[0] === card2.uniqueId[0];
+};
+
+const cerateCardDiv = function (uniqueId) {
+  const cardElement = document.createElement('div');
+  cardElement.classList.add(
+    'card',
+    `card${uniqueId}`,
+    `card${uniqueId[0]}`,
+    'face-down'
+  );
+  return cardElement;
+};
+const createAndAppendAllCards = function (templateArr, parentElement) {
+  for (const cardId of templateArr) {
+    parentElement.appendChild(cerateCardDiv(cardId));
+  }
 };
 
 theGame.start();
