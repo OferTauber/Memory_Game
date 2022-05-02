@@ -9,6 +9,10 @@ const theGame = {
   numOfWrongGuesses: 10,
   gamePause: false,
   gameOver: false,
+  time: {
+    sec: 0,
+    min: 0,
+  },
 
   generateCards() {
     const tampleteArr = genetareRandArrOfPaers(12);
@@ -44,6 +48,20 @@ const theGame = {
 
   start() {
     this.generateCards();
+    setInterval(updateTime, 1000);
+  },
+
+  updateTime() {
+    if (this.gameOver) return;
+    this.time.sec++;
+    if (this.time.sec === 60) {
+      this.time.sec = 0;
+      this.time.min++;
+    }
+    const timeStr = `${(this.time.min < 10 ? '0' : '') + this.time.min}:${
+      (this.time.sec < 10 ? '0' : '') + this.time.sec
+    }`;
+    document.querySelector('.timer').textContent = timeStr;
   },
 
   pairIsFound() {
@@ -118,6 +136,10 @@ const createAndAppendAllCards = function (templateArr, parentElement) {
   for (const cardId of templateArr) {
     parentElement.appendChild(cerateCardDiv(cardId));
   }
+};
+
+const updateTime = function () {
+  theGame.updateTime();
 };
 
 theGame.start();
