@@ -35,7 +35,7 @@ const theGame = {
     }
 
     if (isPair(card, this.openCard)) {
-      pairIsFound();
+      this.pairIsFound();
     } else {
       this.wrongGuess(card);
     }
@@ -48,7 +48,7 @@ const theGame = {
   pairIsFound() {
     this.openCard = undefined;
     this.numOfUnrevealedPairs--;
-    if (this.numOfUnrevealedPairs) {
+    if (!this.numOfUnrevealedPairs) {
       this.winGame();
     }
   },
@@ -58,18 +58,25 @@ const theGame = {
   },
   wrongGuess(card) {
     this.gamePause = true;
-    setTimeout((this.gamePause = false), 1000);
+    setTimeout(() => {
+      this.handelWrongGuess(card);
+    }, 1000);
+  },
+
+  handelWrongGuess(card) {
+    this.gamePause = false;
     card.flipCardDown();
     this.openCard.flipCardDown();
     this.openCard = undefined;
     this.numOfWrongGuesses--;
+    console.log(this.numOfWrongGuesses);
     if (!this.numOfWrongGuesses) {
       this.gameEnd();
     }
   },
 
   winGame() {
-    console.log('win game!!!!'); //TODO -----------------------------
+    alert('win game!!!!'); //TODO -----------------------------
   },
 };
 

@@ -51,10 +51,8 @@ h1 {
   margin: 10px;
   font-size: 3rem;
   padding: 4rem;
+  background-color: #066163;
 }
-
-
-
 
 .card0 {
   background: url(../props/queen-diamond-red.png) no-repeat center center/cover;
