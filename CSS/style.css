@@ -34,10 +34,25 @@ h1 {
   height: 100%;
   width: 70%;
   background-color: var(--color-4);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .control-panel {
   height: 100%;
   width: 30%;
   background-color: var(--color-2);
+}
+
+.card {
+  height: 30%;
+  width: 20%;
+  background-color: palevioletred;
+  margin: 10px;
+  font-size: 3rem;
+  padding: 4rem;
+}
+
+.face-down {
+  color: palevioletred;
 }
