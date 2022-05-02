@@ -4,22 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./CSS/normalize.css" />
+
+    <link rel="stylesheet" href="./CSS/style.css" />
+
     <title>Memory Game</title>
   </head>
   <body>
-    <div class="game-board">
-      <div class="card card1"></div>
-      <div class="card card2"></div>
-      <div class="card card3"></div>
-      <div class="card card4"></div>
-      <div class="card card5"></div>
-      <div class="card card6"></div>
-      <div class="card card1"></div>
-      <div class="card card2"></div>
-      <div class="card card3"></div>
-      <div class="card card4"></div>
-      <div class="card card5"></div>
-      <div class="card card6"></div>
+    <h1>Memory Game</h1>
+    <div class="flex">
+      <div class="game-board">
+        <div class="card card0a">1</div>
+        <div class="card card1a">2</div>
+        <div class="card card2a">2</div>
+        <div class="card card3a">3</div>
+        <div class="card card4a">4</div>
+        <div class="card card5a">5</div>
+
+        <div class="card card0b">5</div>
+        <div class="card card1b">1</div>
+        <div class="card card2b">2</div>
+        <div class="card card3b">3</div>
+        <div class="card card4b">4</div>
+        <div class="card card5b">5</div>
+      </div>
+      <div class="control-panel">
+        <div class="wrong-guesses">
+          <p>Wrong guesses: <span class="wrong-count">0</span></p>
+        </div>
+
+        <div class="timer"><p>00:00</p></div>
+        <div class="btn new-game">New Game</div>
+      </div>
     </div>
     <script src="./scripts/app.js" defer type="module"></script>
   </body>
