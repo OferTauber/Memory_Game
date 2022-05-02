@@ -8,11 +8,32 @@ const theGame = {
   numOfUnrevealedPairs: 6,
   numOfWrongGuesses: 10,
   gamePause: false,
-  generateCards(numOfCardds) {
-    //TODO
-  },
-  newGame(gameLevel) {
-    this.oneCardIsOpen = false;
-    this.numOfCards;
+  generateCards() {
+    const tampleteArr = genetareRandArrOfPaers(12);
+
+    for (const id of tampleteArr) {
+      this.cards.push(new Card(id, this));
+    }
   },
 };
+
+const genetareRandArrOfPaers = function (length) {
+  const randArrOfPaers = [];
+  for (let i = 0; i < length; i += 2) {
+    insertInRandIndex(randArrOfPaers, length, i / 2);
+    insertInRandIndex(randArrOfPaers, length, i / 2);
+  }
+  return randArrOfPaers;
+};
+
+const insertInRandIndex = function (arr, length, insert) {
+  let randIndex = Math.floor(Math.random() * length);
+  while (arr[randIndex] !== undefined) {
+    randIndex++;
+    randIndex %= length;
+  }
+  arr[randIndex] = insert;
+};
+
+theGame.generateCards();
+console.log(theGame.cards);
