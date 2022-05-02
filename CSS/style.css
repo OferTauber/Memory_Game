@@ -10,6 +10,7 @@ html {
   --color-2: #066163;
   --color-3: #cdbe78;
   --color-4: #f2f2f2;
+  --color-5: #69e2e4;
 }
 
 body {
@@ -33,7 +34,7 @@ h1 {
 .game-board {
   height: 100%;
   width: 70%;
-  background-color: var(--color-4);
+  background-color: var(--color-5);
   display: flex;
   flex-wrap: wrap;
 }
@@ -55,34 +56,30 @@ h1 {
 
 
 
-.card0{
+.card0 {
   background: url(../props/queen-diamond-red.png) no-repeat center center/cover;
 }
 
-.card1{
+.card1 {
   background: url(../props/queen-heart-red.png) no-repeat center center/cover;
 }
 
-.card2{
+.card2 {
   background: url(../props/queen-spade-black.png) no-repeat center center/cover;
 }
 
-.card3{
-  background: url(../props/queen-diamond-red.png) no-repeat center center/cover;
+.card3 {
+  background: url(../props/king-heart-red.png) no-repeat center center/cover;
 }
 
-.card4{
-  background: url(../props/queen-heart-red.png) no-repeat center center/cover;
+.card4 {
+  background: url(../props/nine-spade-black.png) no-repeat center center/cover;
 }
 
-.card5{
-  background: url(../props/queen-spade-black.png) no-repeat center center/cover;
+.card5 {
+  background: url(../props/three-spade-black.png) no-repeat center center/cover;
 }
 
-.card6{
-  background: url(../props/queen-spade-black.png) no-repeat center center/cover;
-}
 .face-down {
-  
   background: url(../props/back.png) no-repeat center center/cover;
 }
