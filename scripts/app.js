@@ -42,7 +42,7 @@ const theGame = {
   },
 
   handelCardClick(card) {
-    if(this.gameOver || this.gamePause)
+    // if(this.gameOver || this.gamePause)
   },
 
   start() {
@@ -51,7 +51,6 @@ const theGame = {
 };
 
 const genetareRandArrOfPaers = function (length) {
-
   const randArrOfPaers = [];
   for (let i = 0; i < length; i += 2) {
     insertInRandIndex(randArrOfPaers, length, i / 2);

@@ -1,18 +1,23 @@
-export function Card(id, game) {
-  this.id = id;
+<<<<<<< HEAD
+export function Card(uniqueId, game) {
+  this.uniqueId = uniqueId;
   this.game = game;
-  this.element; //todo create the element and add chrt apropriate CSS classes
+  this.cardElement = document.querySelector(`.card`+uniqueId);
+  this.faceUp=false;
+
+ 
 }
 
-//// Card.prototype.pauseGame = function () {
-////   //TODO
-//// };
 
-Card.prototype.flipCard = function () {
-  //TODO
-};
 
-Card.prototype.clickCard = function () {
-  //TODO
-  this.game.handelCardClick(this);
-};
+Card.prototype.click =function(){
+this.game.handleClick(this);
+}
+
+
+
+
+const flipCard=()=>{
+
+}
+
