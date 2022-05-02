@@ -29,6 +29,7 @@ const theGame = {
     if (this.gameOver || this.gamePause || card.faceUp) return;
 
     card.flipCardUp();
+
     if (!this.openCard) {
       this.openCard = card;
       return;
@@ -105,7 +106,12 @@ const isPair = function (card1, card2) {
 
 const cerateCardDiv = function (uniqueId) {
   const cardElement = document.createElement('div');
-  cardElement.classList.add('card', `card${uniqueId}`, 'face-down');
+  cardElement.classList.add(
+    'card',
+    `card${uniqueId}`,
+    `card${uniqueId[0]}`,
+    'face-down'
+  );
   return cardElement;
 };
 const createAndAppendAllCards = function (templateArr, parentElement) {
