@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/normalize.css" />
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <title>Memory Game</title>
-  </head>
 
-  <body>
-    <h1>Memory Game</h1>
-    <div class="flex">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./CSS/normalize.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" media="(max-width:900px)" href="./CSS/mobile.css" />
+  <title>Memory Game</title>
+</head>
+
+<body>
+  <h1>Memory Game</h1>
+  <div class="flex">
+    <div class="game-board-container">
       <div class="game-board"></div>
-      <div class="control-panel">
-        <div class="wrong-guesses">
-          <p>Wrong guesses: <span class="wrong-count">0</span></p>
-        </div>
-
-        <div class="timer"><p>00:00</p></div>
-        <div class="btn new-game">New Game</div>
-      </div>
     </div>
-    <script src="./scripts/app.js" defer type="module"></script>
-  </body>
+    <div class="control-panel">
+      <div class="Incorrect-guesses">
+        <p>Wrong Guesses:
+        <div class="wrong-count">0</div>
+        </p>
+      </div>
+      <div class="timer">
+        <p>00:00</p>
+      </div>
+      <div class="btn new-game">New Game</div>
+    </div>
+  </div>
+  <script src="./scripts/app.js" defer type="module"></script>
+</body>
+
 </html>
