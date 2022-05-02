@@ -47,12 +47,42 @@ h1 {
 .card {
   height: 30%;
   width: 20%;
-  background-color: palevioletred;
   margin: 10px;
   font-size: 3rem;
   padding: 4rem;
 }
 
+
+
+
+.card0{
+  background: url(../props/queen-diamond-red.png) no-repeat center center/cover;
+}
+
+.card1{
+  background: url(../props/queen-heart-red.png) no-repeat center center/cover;
+}
+
+.card2{
+  background: url(../props/queen-spade-black.png) no-repeat center center/cover;
+}
+
+.card3{
+  background: url(../props/queen-diamond-red.png) no-repeat center center/cover;
+}
+
+.card4{
+  background: url(../props/queen-heart-red.png) no-repeat center center/cover;
+}
+
+.card5{
+  background: url(../props/queen-spade-black.png) no-repeat center center/cover;
+}
+
+.card6{
+  background: url(../props/queen-spade-black.png) no-repeat center center/cover;
+}
 .face-down {
-  color: palevioletred;
+  
+  background: url(../props/back.png) no-repeat center center/cover;
 }

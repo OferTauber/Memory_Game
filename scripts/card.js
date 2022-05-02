@@ -9,4 +9,12 @@ Card.prototype.click = function () {
   this.game.handleClick(this);
 };
 
-const flipCard = () => {};
+Card.prototype.flipCardUp = function () {
+  if (!this.faceUp) this.faceUp = true;
+  cardElement.classList.remove('face-down');
+};
+
+Card.prototype.flipCardDown = function () {
+  if (this.faceUp) this.faceUp = false;
+  cardElement.classList.add('face-down');
+};
