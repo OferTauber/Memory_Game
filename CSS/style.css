@@ -99,7 +99,6 @@ h1 {
 .card {
   height: 90%;
   width: 90%;
-
   font-size: 3rem;
   padding: 0.5vw;
   margin: auto;
@@ -139,7 +138,7 @@ h1 {
   right: 20vw;
   border: 3px solid #73AD21;
   width: 60%;
-  height: 40%;
+  height: 50%;
   background-color: rgb(170, 62, 159,0.9);
   font-size: 4vw;
   display:flex;
