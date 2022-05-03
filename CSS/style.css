@@ -31,7 +31,8 @@ h1 {
   margin: auto;
 }
 
-.game-board {
+.game-board,
+.massege {
   height: 100%;
   width: 70%;
   background-color: var(--color-5);
@@ -80,4 +81,8 @@ h1 {
 
 .face-down {
   background: url(../props/back.png) no-repeat center center/cover;
+}
+
+.hidden {
+  display: none;
 }
