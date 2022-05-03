@@ -1,8 +1,8 @@
-import { Card } from "./card.js";
+import { Card } from './card.js';
 
 const theGame = {
   cards: [],
-  boardElement: document.querySelector(".game-board"),
+  boardElement: document.querySelector('.game-board'),
   gameLevel: 12, //! for "geek out" we can change this
   openCard: undefined, // or card from cards array
   numOfUnrevealedPairs: 6,
@@ -23,7 +23,7 @@ const theGame = {
       this.cards.unshift(new Card(id, this));
       console.log(this.cards[0]);
       const closure = this.cards[0];
-      closure.cardElement.addEventListener("click", (e) => {
+      closure.cardElement.addEventListener('click', (e) => {
         closure.click();
       });
     }
@@ -48,7 +48,9 @@ const theGame = {
 
   start() {
     this.generateCards();
-    setInterval(updateTime, 1000);
+    this.gameOver = false;
+    this.time.sec = 0;
+    this.time.min = 0;
   },
 
   updateTime() {
@@ -66,7 +68,7 @@ const theGame = {
 
   restartGame(event) {
     event.target.classList.remove();
-    const closingMessage = document.querySelector(".game-end");
+    const closingMessage = document.querySelector('.game-end');
     closingMessage.remove();
     this.cards = [];
     this.gameLevel = 12;
@@ -76,8 +78,8 @@ const theGame = {
     this.updateWrongGuessesDisplay();
     this.gamePause = false;
     this.gameOver = false;
-    const gameBoard = document.querySelector(".game-board");
-    gameBoard.innerHTML = "";
+    const gameBoard = document.querySelector('.game-board');
+    gameBoard.innerHTML = '';
     theGame.start();
   },
 
@@ -90,20 +92,21 @@ const theGame = {
   },
 
   gameEnd() {
-    const gameEndMessage = document.createElement("div");
+    const gameEndMessage = document.createElement('div');
     gameEndMessage.innerHTML =
-      this.gameOver == true ? "<h2>GAME OVER</h2>" : "<h2>You won!</h2>";
-    gameEndMessage.classList.add("game-end");
-    const newGameButton = document.createElement("button");
-    newGameButton.classList.add("btn", "new-game");
-    newGameButton.innerText = "New Game";
-    newGameButton.addEventListener("click", (event) => {
+      this.gameOver == true ? '<h2>GAME OVER</h2>' : '<h2>You won!</h2>';
+    gameEndMessage.classList.add('game-end');
+    const newGameButton = document.createElement('button');
+    newGameButton.classList.add('btn', 'new-game');
+    newGameButton.innerText = 'New Game';
+    newGameButton.addEventListener('click', (event) => {
       this.restartGame(event);
     });
     gameEndMessage.appendChild(newGameButton);
-    const h1 = document.querySelector("h1");
+    const h1 = document.querySelector('h1');
 
     h1.parentNode.insertBefore(gameEndMessage, h1.nextSibling);
+    this.gameOver = true;
   },
 
   wrongGuess(card) {
@@ -127,7 +130,7 @@ const theGame = {
     }
   },
   updateWrongGuessesDisplay() {
-    const wrongGuessesDisplay = document.querySelector(".wrong-count");
+    const wrongGuessesDisplay = document.querySelector('.wrong-count');
     wrongGuessesDisplay.innerText = 10 - this.numOfWrongGuesses;
   },
 };
@@ -136,8 +139,8 @@ const generateRandArrOfPairs = function (length) {
   const randArrOfPairs = [];
 
   for (let i = 0; i < length; i += 2) {
-    insertInRandIndex(randArrOfPairs, length, i / 2 + "a");
-    insertInRandIndex(randArrOfPairs, length, i / 2 + "b");
+    insertInRandIndex(randArrOfPairs, length, i / 2 + 'a');
+    insertInRandIndex(randArrOfPairs, length, i / 2 + 'b');
   }
   return randArrOfPairs;
 };
@@ -156,12 +159,12 @@ const isPair = function (card1, card2) {
 };
 
 const cerateCardDiv = function (uniqueId) {
-  const cardElement = document.createElement("div");
+  const cardElement = document.createElement('div');
   cardElement.classList.add(
-    "card",
+    'card',
     `card${uniqueId}`,
     `card${uniqueId[0]}`,
-    "face-down"
+    'face-down'
   );
   return cardElement;
 };
@@ -176,3 +179,4 @@ const updateTime = function () {
 };
 
 theGame.start();
+setInterval(updateTime, 1000);
