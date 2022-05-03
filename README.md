@@ -19,3 +19,9 @@ Game purpose: find all matching cards by flipping them.
 ## License & copyright
 
 &copy; Ofer T., Naama G.
+
+
+------------
+## Design
+
+![Logo](https://raw.githubusercontent.com/OferTauber/Memory_Game/main/docs/Memory%20Game%20-%20cars%20click.jpg)
